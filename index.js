@@ -15,7 +15,7 @@
  * should return 'foofoo'.
 */
 function processFirstItem(stringList, callback) {
-  return callback(stringList[0])
+  return callback(stringList[0]);
 }
 
 // ⭐️ Example Challenge END ⭐️
@@ -28,10 +28,20 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ *  counter1 has the variable inside the function.  This means it is within a private scope and 
+ *  cannot be called from outside the function.  counter2 has a global variable meaning it will be called
+ *  by the function because it looks outside to grab it.  It can also be recalled outside of the function.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
+ * 
+ * counter2 uses closure.  The count variable is outside the function.
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
+ * counter1 would be useful if you don't want the count resetting when it finishes the function and starts a new one.
+ * counter2 would be useful to repeat the function and have a continuous count that doesn't reset when the function
+ * is called.
+ * 
 */
 
 // counter1 code
@@ -56,11 +66,13 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
+function inning(){
+  let points = Math.floor(Math.random() * 3);
+  return points;
 
 }
+
+console.log(inning());
 
 /* Task 3: finalScore()
 
@@ -76,11 +88,19 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(inning, innNum){
+  var score = {
+    "Tigers": 0,
+    "Yankees": 0
+  }
+  for (let i = 0; i < innNum; i++) {
+      score.Tigers += inning();
+      score.Yankees += inning();
+  }
+  return score;
 }
+
+console.log(finalScore(inning, 9))
 
 /* Task 4: 
 
@@ -103,8 +123,19 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(inning, innNum2 ) {
+      var score = {
+      "Tigers": 0,
+      "Yankees": 0
+    }
+    for (let i = 1; i <= innNum2; i++) {
+        score.Tigers += inning();
+        score.Yankees += inning();
+        console.log(`${i}th inning: ${score.Tigers} - ${score.Yankees}`)
+    }
+  return console.log(`Final Score: ${score.Tigers} - ${score.Yankees}`)
+
+
 }
 
-
+console.log(scoreboard(inning, 9))
