@@ -30,11 +30,12 @@ function processFirstItem(stringList, callback) {
  * 
  *  counter1 has the variable inside the function.  This means it is within a private scope and 
  *  cannot be called from outside the function.  counter2 has a global variable meaning it will be called
- *  by the function because it looks outside to grab it.  It can also be recalled outside of the function.
+ *  by the function because it looks outside to grab it.  It can also be recalled globally or outside of the function.
  * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
- * counter2 uses closure.  The count variable is outside the function.
+ * counter1 uses closure.  The count variable is inside the function and is called by the counter function nested
+ *  inside the counterMaker function.
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
@@ -131,11 +132,11 @@ function scoreboard(inning, innNum2 ) {
     for (let i = 1; i <= innNum2; i++) {
         score.Tigers += inning();
         score.Yankees += inning();
-        console.log(`${i}th inning: ${score.Tigers} - ${score.Yankees}`)
+        console.log(`Inning ${i}: ${score.Tigers} - ${score.Yankees}`)
     }
   return console.log(`Final Score: ${score.Tigers} - ${score.Yankees}`)
 
 
 }
 
-console.log(scoreboard(inning, 9))
+scoreboard(inning, 9)
