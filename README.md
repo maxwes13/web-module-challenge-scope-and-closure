@@ -42,7 +42,11 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+closure is when code can access a variable or function from outside of its scope. 
+
 2. Study the following code, then answer the questions below.
+
 
 ```js
 function personalDice(name){
@@ -63,8 +67,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+Closure is where the ${name} variable is called within the function.  It is closure because it has to take this from outside the function.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+Each time it is called, the name will always be Dan.  However the number that is rolled could change.
+
 c. What is the lexical scope of `newRoll`? 
+
+newRoll can only be accessed by calling the function personalDice.
 
 ### Task 3 - Stretch Goals
 
